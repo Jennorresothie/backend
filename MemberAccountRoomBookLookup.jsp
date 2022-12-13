@@ -15,7 +15,7 @@ response.setHeader("Access-Control-Allow-Origin", "*");
         try {
 
             String dbName = "mydb";
-            String dbHost = "localhost";
+            String dbHost = "ooo-db-lb-15022430-ad026bc77591.kr.lb.naverncp.com";
             String dbID = "root";
             String dbPW = "qwer1234";
             String dbPort = "3306";
@@ -30,8 +30,6 @@ response.setHeader("Access-Control-Allow-Origin", "*");
             );
             stmt = conn.createStatement();
             rs = stmt.executeQuery("select * from room_book where member_idx ="+member_num );
-
-			System.out.println("select * from room_book where member_idx ="+member_num);
 			
 			JSONArray list = new JSONArray();
 			

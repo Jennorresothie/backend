@@ -2,13 +2,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+
 <%
 		Statement stmt = null;
         Connection conn = null;
@@ -17,7 +11,7 @@
         try {
 			request.setCharacterEncoding("UTF-8");
             String dbName = "mydb";
-            String dbHost = "localhost";
+            String dbHost = "10.10.30.11";
             String dbID = "root";
             String dbPW = "qwer1234";
             String dbPort = "3306";
@@ -44,5 +38,3 @@
         }
         
 %>
-</body>
-</html>

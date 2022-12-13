@@ -18,12 +18,10 @@ response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE")
 
         try {
             String dbName = "mydb";
-            String dbHost = "localhost";
+            String dbHost = "ooo-db-lb-15022430-ad026bc77591.kr.lb.naverncp.com";
             String dbID = "root";
             String dbPW = "qwer1234";
             String dbPort = "3306";
-            
-            
             
                
             Class.forName("com.mysql.jdbc.Driver");

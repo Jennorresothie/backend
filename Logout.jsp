@@ -5,11 +5,6 @@
 
    try {
         request.setCharacterEncoding("UTF-8");
-        String dbName = "mydb";
-        String dbHost = "localhost";
-        String dbID = "root";
-        String dbPW = "qwer1234";
-        String dbPort = "3306";
         
         String sessionid = request.getParameter("userid");
         session.removeAttribute("sessionid");

@@ -12,7 +12,7 @@ Connection conn = null;
 
 try {
 	String dbName = "mydb";
-	String dbHost = "localhost";
+	String dbHost = "ooo-db-lb-15022430-ad026bc77591.kr.lb.naverncp.com";
 	String dbID = "root";
 	String dbPW = "qwer1234";
 	String dbPort = "3306";

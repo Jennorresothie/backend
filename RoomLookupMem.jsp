@@ -3,18 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>방 조회</title>
-</head>
-<body>
 
-<form action="/Web/RoomLookupMem.jsp">
-		보고 싶은 방을 입력하세요 :
-		<input type="text" name="idx">
-</form>
 
 <%
 Statement stmt = null;
@@ -23,7 +12,7 @@ Connection conn = null;
 
 try {
     String dbName = "mydb";
-    String dbHost = "localhost";
+    String dbHost = "ooo-db-lb-15022430-ad026bc77591.kr.lb.naverncp.com";
     String dbID = "root";
     String dbPW = "qwer1234";
     String dbPort = "3306";
@@ -51,5 +40,4 @@ try {
     System.out.println(ex);
 }
 %>
-</body>
-</html>
+

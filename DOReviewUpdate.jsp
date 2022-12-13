@@ -12,7 +12,7 @@ int result = 0;
 try {
 
     String dbName = "mydb";
-    String dbHost = "localhost";
+    String dbHost = "10.10.30.11";
     String dbID = "root";
     String dbPW = "qwer1234";
     String dbPort = "3306";
