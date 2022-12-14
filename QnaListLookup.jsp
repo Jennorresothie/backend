@@ -18,10 +18,10 @@
             String dbPW = "qwer1234";
             String dbPort = "3306";
 			
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW
-            );
+            String DB_URL = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?useUnicode=true&serverTimezone=Asia/Seoul";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
+            
             stmt = conn.createStatement();
             rs = stmt.executeQuery("SELECT * FROM qna");
 
@@ -38,8 +38,6 @@
         		list.add(obj);
             }
             
-            
-
             
             rs.close();
             stmt.close();

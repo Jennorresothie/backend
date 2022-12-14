@@ -22,10 +22,11 @@ response.setHeader("Access-Control-Allow-Origin", "*");
 		
 		    String qna_num = request.getParameter("idx");
 		    
-		    Class.forName("com.mysql.jdbc.Driver");
-		    conn = DriverManager.getConnection(
-		            "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW
-		    );
+		    String DB_URL = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?useUnicode=true&serverTimezone=Asia/Seoul";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
+		    
+		    
 		    stmt = conn.createStatement();
 		    rs = stmt.executeQuery("SELECT q.idx, q.qtitle, q.qcontent, q.qdate FROM qna q WHERE q.idx="+qna_num );
 		
