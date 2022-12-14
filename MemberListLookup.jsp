@@ -2,7 +2,8 @@
 <%@page import="org.json.simple.*"%>
 
 <%
-response.addHeader("Access-Control-Allow-Origin", "http://www.ec2.n-e.kr");
+response.addHeader("Access-Control-Allow-Origin", "http://www.ec2.n-e.kr, http://www.ec2.n-e.kr");
+
 %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
