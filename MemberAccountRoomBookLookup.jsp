@@ -37,10 +37,11 @@ response.addHeader("Access-Control-Allow-Credentials", "true");
 			
             while (rs.next()){
             	JSONObject obj = new JSONObject();
-        		obj.put("room_name", rs.getString(1));
-        		obj.put("start", rs.getString(2));
-        		obj.put("end", rs.getString(3));
-        		obj.put("price", rs.getString(4));
+            	obj.put("name", rs.getString(1));
+        		obj.put("room_name", rs.getString(2));
+        		obj.put("start", rs.getString(3));
+        		obj.put("end", rs.getString(4));
+        		obj.put("price", rs.getString(5));
         		list.add(obj);
             }
             
