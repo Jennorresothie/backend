@@ -23,15 +23,12 @@ response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE")
             String dbPW = "qwer1234";
             String dbPort = "3306";
             
-               
+            String DB_URL = "jdbc:mysql://ooo-db-lb-15022430-ad026bc77591.kr.lb.naverncp.com:3306/mysql?useUnicode=true&serverTimezone=Asia/Seoul";   
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW
-            );
+            conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
             stmt = conn.createStatement();
             String mid = request.getParameter("mid");
             rs = stmt.executeQuery("select id, mname, passwd, phone from member where id='"+mid+"'");
-			                             
             if (rs.next()) {
                out.println("true");
             } else {
