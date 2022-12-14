@@ -37,7 +37,7 @@ response.setHeader("Access-Control-Allow-Origin", "*");
 				session.setAttribute("midx", rs.getString("idx"));
 				session.setMaxInactiveInterval(-1);
 								
-				response.sendRedirect("https://www.ec2.n-e.kr?sid="+session.getId());
+				response.sendRedirect("http://www.ec2.n-e.kr?sid="+session.getId());
 
 			} else {
 		        out.println("패스워드 틀림");
