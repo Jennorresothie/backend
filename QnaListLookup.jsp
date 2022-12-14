@@ -38,6 +38,8 @@
         		list.add(obj);
             }
             
+            out.println("java "+list.toJSONString());
+            
             
             rs.close();
             stmt.close();
