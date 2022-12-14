@@ -30,7 +30,7 @@ try {
 
 	result = stmt.executeUpdate("INSERT INTO member (id, passwd, mname, phone) VALUES('" + uid + "' , '" + upw + "' , '"+ uname +"' , '"+ uph +"')");
 
-	response.sendRedirect("http://ooo-web-lb-15022423-da2b8b14cd43.kr.lb.naverncp.com/index.html");
+	response.sendRedirect("http://www.ec2.n-e.kr");
 	conn.close();
 } catch (Exception e) {
 
