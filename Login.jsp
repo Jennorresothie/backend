@@ -26,7 +26,6 @@ response.setHeader("Access-Control-Allow-Origin", "*");
         Class.forName("com.mysql.jdbc.Driver");
         
         String DB_URL = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?useUnicode=true&serverTimezone=Asia/Seoul";
-        System.out.println(DB_URL);
         Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
         Statement stmt = conn.createStatement();

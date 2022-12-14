@@ -10,7 +10,7 @@
         session.removeAttribute("sessionid");
         session.invalidate();
         
-        response.sendRedirect("http://ooo-web-lb-15022423-da2b8b14cd43.kr.lb.naverncp.com/index.html");
+        response.sendRedirect("http://www.ec2.n-e.kr/");
       
    } catch (Exception e) {
 
