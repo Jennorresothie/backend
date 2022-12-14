@@ -31,7 +31,7 @@ try {
 
 	result = stmt.executeUpdate("INSERT INTO member (id, passwd, mname, phone) VALUES('" + uid + "' , '" + upw + "' , '"+ uname +"' , '"+ uph +"')");
 
-	response.sendRedirect("http://ec2.n-e.kr");
+	response.sendRedirect("http://www.ec2.n-e.kr");
 	conn.close();
 } catch (Exception e) {
 
