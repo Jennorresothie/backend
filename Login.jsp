@@ -37,7 +37,7 @@ response.setHeader("Access-Control-Allow-Origin", "*");
 				session.setAttribute("midx", rs.getString("idx"));
 				session.setMaxInactiveInterval(-1);
 								
-				response.sendRedirect("http://localhost/userindex/index.html?sid="+session.getId());
+				response.sendRedirect("https://www.ec2.n-e.kr?sid="+session.getId());
 
 			} else {
 		        out.println("패스워드 틀림");
@@ -49,7 +49,6 @@ response.setHeader("Access-Control-Allow-Origin", "*");
 		rs.close();
 		conn.close();
 		
-		///response.sendRedirect("http://localhost/front.html");
 		
 	} catch (Exception e) {
 

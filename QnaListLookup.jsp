@@ -38,7 +38,7 @@
         		list.add(obj);
             }
             
-            out.println(list.toJSONString());
+            
 
             
             rs.close();

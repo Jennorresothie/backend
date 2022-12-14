@@ -2,70 +2,55 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>ReviewCreate</title>
-</head>
-<body>
-
-<form action="/Web/ReviewCreate.jsp" method="post">
-		제목을 입력하세요
-		<input type="text" name="Title">
-		<p>
-		내용을 입력하세요
-		<input type="text" name="content">
-		<p>
-		방 번호를 입력하세요
-		<input type="text" name="Rnum">
-		<p>
-		회원번호를 입력하세요
-		<input type="text" name="Mnum">
-		<p>
-		<input type="submit" value="전송">
-</form>
-
 
 <%
-    Statement stmt = null;
-    Connection conn = null;
-    int result = 0;
+	Statement stmt = null;
+	int result = 0;
+	Connection conn = null;
+	
+	try {
+		request.setCharacterEncoding("UTF-8");
+	    String dbName = "mydb";
+	    String dbHost = "10.10.30.11";
+	    String dbID = "root";
+	    String dbPW = "qwer1234";
+	    String dbPort = "3306";
+	
+	    String title = request.getParameter("title");
+	    String content = request.getParameter("content");
+	    String userid = request.getParameter("uid");
+	    
+	    		    
+	    System.out.println(session.getId());
+	
+	
+	    Class.forName("com.mysql.jdbc.Driver");		
+	    conn = DriverManager.getConnection(
+	            "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW);
+	    stmt = conn.createStatement();
+	
+	
+	    if (userid.equals(session.getId())) {
+	    	String name = (String)session.getAttribute("mname");
+		    String midx = (String)session.getAttribute("midx");
 
-    try {
-
-        String dbName = "mydb";
-        String dbHost = "localhost";
-        String dbID = "root";
-        String dbPW = "qwer1234";
-        String dbPort = "3306";
-        
-        request.setCharacterEncoding("UTF-8");
-
-        String title = request.getParameter("Title");
-        String content = request.getParameter("content");
-        String room_num = request.getParameter("Rnum");
-       	String member_num = request.getParameter("Mnum");
-       	
-        Class.forName("com.mysql.jdbc.Driver");
-
-        conn = DriverManager.getConnection(
-                "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW
-        );
-        stmt = conn.createStatement();
-
-        result = stmt.executeUpdate("INSERT INTO review (rtitle, rcontent, rdate, room_idx, member_idx) VALUES('"+ title + "','" + content + "', DATE_FORMAT(now(),'%Y-%m-%d'),"+ room_num +","+member_num+")" );
-
-        System.out.println(result);
-
-        stmt.close();
-        conn.close();
-
-
-    } catch (Exception ex) {
-        System.out.println(ex);
-    }
+		    result = stmt.executeUpdate("INSERT INTO review (rtitle, rcontent, rdate, room_idx, member_idx) VALUES('"+ title + "','" + content + "', DATE_FORMAT(now(),'%Y-%m-%d'), 1, " + midx +")" );
+	        
+	        //글 읽기 페이지로 redirect
+	        response.sendRedirect("http://ooo-web-lb-15022423-da2b8b14cd43.kr.lb.naverncp.com/review.html");
+	        
+	     } else {
+	    	 response.sendRedirect("http://ooo-web-lb-15022423-da2b8b14cd43.kr.lb.naverncp.com/login.html");
+	     }		    
+	
+	
+	    stmt.close();
+	    conn.close();
+	
+	} catch (Exception ex) {
+	    System.out.println(ex);
+	}
+	
+	
 %>
-</body>
-</html>
+	

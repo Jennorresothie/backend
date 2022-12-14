@@ -42,7 +42,6 @@ response.setHeader("Access-Control-Allow-Origin", "*");
 				
 		    }
 		    
-		    out.println(list.toJSONString());
 		    rs.close();
 		    stmt.close();
 		    conn.close();

@@ -10,9 +10,7 @@
         session.removeAttribute("sessionid");
         session.invalidate();
         
-        System.out.println("1");
-        
-        response.sendRedirect("http://localhost/userindex/index.html");
+        response.sendRedirect("http://ooo-web-lb-15022423-da2b8b14cd43.kr.lb.naverncp.com/index.html");
       
    } catch (Exception e) {
 

@@ -38,8 +38,7 @@ response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE")
         		obj.put("phone", rs.getString("phone"));
         		list.add(obj);
             }
-            out.println(list.toJSONString());
-
+            
             rs.close();
             stmt.close();
             conn.close();

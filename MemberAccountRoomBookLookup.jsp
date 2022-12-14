@@ -5,7 +5,9 @@
     pageEncoding="UTF-8"%>
     
 <%
-response.setHeader("Access-Control-Allow-Origin", "*");
+response.setHeader("Access-Control-Allow-Origin", "http://localhost");
+response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+response.addHeader("Access-Control-Allow-Credentials", "true");
 %>
 <%
 		Statement stmt = null;
@@ -19,8 +21,8 @@ response.setHeader("Access-Control-Allow-Origin", "*");
             String dbID = "root";
             String dbPW = "qwer1234";
             String dbPort = "3306";
-            String member_num = request.getParameter("idx");
             
+            String midx = (String)session.getAttribute("midx");
             
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url="jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?characterEncoding=utf8";
@@ -29,19 +31,18 @@ response.setHeader("Access-Control-Allow-Origin", "*");
                     "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW
             );
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("select * from room_book where member_idx ="+member_num );
+            rs = stmt.executeQuery("select r.rname, rb.startbook, rb.endbook, r.price from room_book rb, room r where rb.room_idx = r.idx and rb.member_idx=" + midx +" order by rb.startbook asc");
 			
 			JSONArray list = new JSONArray();
 			
             while (rs.next()){
             	JSONObject obj = new JSONObject();
-        		obj.put("startbook", rs.getString("startbook"));
-        		obj.put("endbook", rs.getString("endbook"));
-        		obj.put("member_idx", rs.getString("member_idx"));
-        		obj.put("room_idx", rs.getString("room_idx"));
+        		obj.put("room_name", rs.getString(1));
+        		obj.put("start", rs.getString(2));
+        		obj.put("end", rs.getString(3));
+        		obj.put("price", rs.getString(4));
         		list.add(obj);
             }
-            out.println(list.toJSONString());
             
             rs.close();
             stmt.close();

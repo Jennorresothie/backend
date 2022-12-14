@@ -35,8 +35,6 @@ try {
 		obj.put("price", rs.getString("price"));
 		list.add(obj);
 	}
-	
-	out.println(list.toJSONString());
 
 	rs.close();
 	stmt.close();
