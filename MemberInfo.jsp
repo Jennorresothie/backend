@@ -2,7 +2,7 @@
 <%@page import="org.json.simple.*"%>
 
 <% 
-response.addHeader("Access-Control-Allow-Origin", "http://localhost");
+response.addHeader("Access-Control-Allow-Origin", "*");
 response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
 %>
 

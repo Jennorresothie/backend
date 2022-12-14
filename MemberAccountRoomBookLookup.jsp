@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
     
 <%
-response.setHeader("Access-Control-Allow-Origin", "http://localhost");
+response.setHeader("Access-Control-Allow-Origin", "*");
 response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
 response.addHeader("Access-Control-Allow-Credentials", "true");
 %>
