@@ -26,9 +26,10 @@
 		    System.out.println(session.getId());
 
 	
-		    Class.forName("com.mysql.jdbc.Driver");		
-		    conn = DriverManager.getConnection(
-		            "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW);
+		    String DB_URL = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?useUnicode=true&serverTimezone=Asia/Seoul";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
+		    
 		    stmt = conn.createStatement();
 		    
 		    
@@ -39,10 +40,10 @@
     		    result = stmt.executeUpdate("INSERT INTO qna (qtitle, qcontent, qdate, member_idx) VALUES('"+ title + "' , '" + content + "' , " + "DATE_FORMAT(now(),'%Y-%m-%d')," + midx +")");
                 
                 //글 읽기 페이지로 redirect
-                response.sendRedirect("http://ooo-web-lb-15022423-da2b8b14cd43.kr.lb.naverncp.com/faq.html");
+                response.sendRedirect("http://www.ec2.n-e.kr/userindex/qna/faq.html");
                 
              } else {
-            	 response.sendRedirect("http://ooo-web-lb-15022423-da2b8b14cd43.kr.lb.naverncp.com/login.html");
+            	 response.sendRedirect("http://www.ec2.n-e.kr/userindex/user2/login.html");
              }		    
 
 		
