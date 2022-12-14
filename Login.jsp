@@ -24,7 +24,10 @@ response.setHeader("Access-Control-Allow-Origin", "*");
         String dbPort = "3306";
         
         Class.forName("com.mysql.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW);
+        
+        String DB_URL = "jdbc:mysql://ooo-db-lb-15022430-ad026bc77591.kr.lb.naverncp.com:3306/mysql?useUnicode=true&serverTimezone=Asia/Seoul";   
+        Class.forName("com.mysql.jdbc.Driver");
+        conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
         Statement stmt = conn.createStatement();
 
 		String sql = "SELECT id, idx, mname, passwd FROM member WHERE id = '"+ uid +"'" ;
