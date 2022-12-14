@@ -24,12 +24,11 @@ response.addHeader("Access-Control-Allow-Credentials", "true");
             
             String midx = (String)session.getAttribute("midx");
             
+            String DB_URL = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?useUnicode=true&serverTimezone=Asia/Seoul";
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url="jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?characterEncoding=utf8";
-
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW
-            );
+            conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
+            
+           
             stmt = conn.createStatement();
             rs = stmt.executeQuery("select m.mname, r.rname, rb.startbook, rb.endbook, r.price from room_book rb, room r, member m where rb.room_idx = r.idx and rb.member_idx=m.idx and rb.member_idx="+ midx +" order by rb.startbook asc");
 			
