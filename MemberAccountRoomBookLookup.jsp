@@ -31,19 +31,20 @@ response.addHeader("Access-Control-Allow-Credentials", "true");
             
             
             String midx = (String)session.getAttribute("midx");
-            
-            rs = stmt.executeQuery("select r.rname, rb.startbook, rb.endbook, r.price from room_book rb, room r where rb.room_idx = r.idx and rb.member_idx=" + midx +" order by rb.startbook asc");
-         
+            rs = stmt.executeQuery("select m.mname, r.rname, rb.startbook, rb.endbook, r.price from room_book rb, room r, member m where rb.room_idx = r.idx and rb.member_idx=m.idx and rb.member_idx="+ midx +" order by rb.startbook asc");
 			
             
 			JSONArray list = new JSONArray();
 			
+			
+			
             while (rs.next()){
             	JSONObject obj = new JSONObject();
-        		obj.put("room_name", rs.getString(1));
-        		obj.put("start", rs.getString(2));
-        		obj.put("end", rs.getString(3));
-        		obj.put("price", rs.getString(4));
+            	obj.put("name", rs.getString(1));
+        		obj.put("room_name", rs.getString(2));
+        		obj.put("start", rs.getString(3));
+        		obj.put("end", rs.getString(4));
+        		obj.put("price", rs.getString(5));
         		list.add(obj);
             }
             
