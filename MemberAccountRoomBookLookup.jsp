@@ -44,6 +44,8 @@ response.addHeader("Access-Control-Allow-Credentials", "true");
         		list.add(obj);
             }
             
+            out.println("java "+list.toJSONString());
+            
             rs.close();
             stmt.close();
             conn.close();
