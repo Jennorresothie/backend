@@ -11,7 +11,7 @@
 		try {
 			request.setCharacterEncoding("UTF-8");
 		    String dbName = "mydb";
-		    String dbHost = "localhost";
+		    String dbHost = "10.10.30.11";
 		    String dbID = "root";
 		    String dbPW = "qwer1234";
 		    String dbPort = "3306";
@@ -25,9 +25,9 @@
 		    System.out.println(session.getAttribute("userid"));
 
 	
-		    Class.forName("com.mysql.jdbc.Driver");		
-		    conn = DriverManager.getConnection(
-		            "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW);
+		    String DB_URL = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?useUnicode=true&serverTimezone=Asia/Seoul";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
 		    stmt = conn.createStatement();
 		    
 		    
@@ -41,10 +41,10 @@
             	result = stmt.executeUpdate("INSERT INTO room_book (startbook, endbook, member_idx, room_idx) VALUES('"+ startbook + "' , '" + endbook + "' , " + midx +" , " + ridx +")");
                 
 
-                response.sendRedirect("http://localhost/userindex/reservation/reservations.html");
+                response.sendRedirect("http://www.ec2.n-e.kr/reservations.html");
                 
              } else {
-            	 response.sendRedirect("http://localhost/userindex/user2/login.html");
+            	 response.sendRedirect("http://www.ec2.n-e.kr/login.html");
              }		    
 
 		
