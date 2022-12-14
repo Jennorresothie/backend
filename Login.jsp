@@ -33,11 +33,13 @@ response.setHeader("Access-Control-Allow-Origin", "*");
 		
 		if (rs.next()){
 			if (rs.getString("passwd").equals(upw)) {
-				out.println(rs.getString("mname")+"님의 로그인 성공");
+				//session.setAttribute("Sessionid", rs.getString("idx")); //세션에 저장
 				session.setAttribute("midx", rs.getString("idx"));
 				session.setMaxInactiveInterval(-1);
-								
-				response.sendRedirect("http://localhost/userindex/index.html?sid="+session.getId());
+				//Cookie recookie = new Cookie("re", rs.getString("idx"));
+				//response.addCookie(recookie);
+				//response.sendRedirect("http://localhost/userindex/index.html");
+				response.sendRedirect("http://localhost/userindex/index.html?idx=" +session.getId());
 
 			} else {
 		        out.println("패스워드 틀림");

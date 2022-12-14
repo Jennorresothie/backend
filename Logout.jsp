@@ -12,10 +12,13 @@
         String dbPort = "3306";
         
         String sessionid = request.getParameter("userid");
-        session.removeAttribute("sessionid");
+        System.out.println(session.getAttribute("midx"));
+        System.out.println(session.getId());
+        session.removeAttribute(sessionid);
         session.invalidate();
         
-        System.out.println("1");
+        
+        
         
         response.sendRedirect("http://localhost/userindex/index.html");
       
