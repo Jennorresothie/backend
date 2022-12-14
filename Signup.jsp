@@ -18,8 +18,9 @@ try {
     String dbPW = "qwer1234";
     String dbPort = "3306";
 	
-	Class.forName("com.mysql.jdbc.Driver");
-	conn = DriverManager.getConnection("jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW);
+    String DB_URL = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?useUnicode=true&serverTimezone=Asia/Seoul";
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
 	stmt = conn.createStatement();
 	
 	String uid = request.getParameter("memEmail");
@@ -30,7 +31,7 @@ try {
 
 	result = stmt.executeUpdate("INSERT INTO member (id, passwd, mname, phone) VALUES('" + uid + "' , '" + upw + "' , '"+ uname +"' , '"+ uph +"')");
 
-	response.sendRedirect("http://www.ec2.n-e.kr");
+	response.sendRedirect("http://ec2.n-e.kr");
 	conn.close();
 } catch (Exception e) {
 

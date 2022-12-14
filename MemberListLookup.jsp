@@ -2,8 +2,7 @@
 <%@page import="org.json.simple.*"%>
 
 <%
-response.addHeader("Access-Control-Allow-Origin", "http://www.ec2.n-e.kr");
-
+response.addHeader("Access-Control-Allow-Origin", "*");
 %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -23,9 +22,9 @@ try {
 	String dbPW = "qwer1234";
 	String dbPort = "3306";
 
-	String DB_URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/" + dbName;
-	Class.forName("com.mysql.jdbc.Driver");
-	conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
+	String DB_URL = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?useUnicode=true&serverTimezone=Asia/Seoul";
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    conn = DriverManager.getConnection(DB_URL, dbID, dbPW);
 	stmt = conn.createStatement();
 	String mid = request.getParameter("mid");
 	rs = stmt.executeQuery("select id, mname, passwd, phone from member where id='" + mid + "'");
