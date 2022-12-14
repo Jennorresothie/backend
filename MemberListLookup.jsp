@@ -3,6 +3,7 @@
 
 <%
 response.addHeader("Access-Control-Allow-Origin", "https://www.ec2.n-e.kr");
+response.addHeader("Access-Control-Allow-Origin", "http://www.ec2.n-e.kr");
 //response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
 %>
 
