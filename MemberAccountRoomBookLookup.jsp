@@ -31,7 +31,7 @@ response.addHeader("Access-Control-Allow-Credentials", "true");
                     "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?user="+dbID+"&password="+dbPW
             );
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("select r.rname, rb.startbook, rb.endbook, r.price from room_book rb, room r where rb.room_idx = r.idx and rb.member_idx=" + midx +" order by rb.startbook asc");
+            rs = stmt.executeQuery("select m.mname, r.rname, rb.startbook, rb.endbook, r.price from room_book rb, room r, member m where rb.room_idx = r.idx and rb.member_idx=m.idx and rb.member_idx="+ midx +"order by rb.startbook asc");
 			
 			JSONArray list = new JSONArray();
 			
