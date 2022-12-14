@@ -2,7 +2,7 @@
 <%@page import="org.json.simple.*"%>
 
 <% 
-response.addHeader("Access-Control-Allow-Origin", "http://ooo-web-lb-15022423-da2b8b14cd43.kr.lb.naverncp.com/");
+response.addHeader("Access-Control-Allow-Origin", "http://ooo-web-lb-15022423-da2b8b14cd43.kr.lb.naverncp.com, https//www.ec2.n-e.kr");
 response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
 %>
 
