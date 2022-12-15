@@ -41,10 +41,10 @@
             	result = stmt.executeUpdate("INSERT INTO room_book (startbook, endbook, member_idx, room_idx) VALUES('"+ startbook + "' , '" + endbook + "' , " + midx +" , " + ridx +")");
                 
 
-                response.sendRedirect("http://www.ec2.n-e.kr/userindex/reservation/reservations.html");
+                response.sendRedirect("http://www.ec2.n-e.kr/userindex/reservations.html");
                 
              } else {
-            	 response.sendRedirect("http://www.ec2.n-e.kr/userindex/user2/login.html");
+            	 response.sendRedirect("http://www.ec2.n-e.kr/login.html");
              }		    
 
 		
