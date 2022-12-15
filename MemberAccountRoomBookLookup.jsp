@@ -6,7 +6,6 @@
 
 <%
 response.setHeader("Access-Control-Allow-Origin", "http://localhost");
-//response.addHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
 response.addHeader("Access-Control-Allow-Credentials", "true");
 
 %>
