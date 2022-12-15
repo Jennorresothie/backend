@@ -43,10 +43,10 @@ response.setHeader("Access-Control-Allow-Origin", "*");
 				response.sendRedirect("http://www.ec2.n-e.kr?sid="+session.getId());
 
 			} else {
-		        out.println("패스워드 틀림");
+		        out.println("패스워드 틀렸다");
 			}
 	    } else {
-	    	out.println("아이디 틀림");
+	    	out.println("아이디 틀렸다");
 	    }
 		
 		rs.close();
