@@ -1,8 +1,6 @@
 <%@page import="java.sql.*"%>
 <%@page import="org.json.simple.*"%>
 
-<% response.setHeader("Access-Control-Allow-Origin", "*"); %>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
