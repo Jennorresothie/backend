@@ -23,7 +23,7 @@
 		    String userid = request.getParameter("uid");
 		    
 		    		    
-		    System.out.println(session.getId());
+		    System.out.println(title+' '+content+' '+userid);
 
 	
 		    String DB_URL = "jdbc:mysql://"+dbHost+":"+dbPort+"/"+dbName+"?useUnicode=true&serverTimezone=Asia/Seoul";
@@ -34,7 +34,7 @@
 		    
 		    
             if (userid.equals(session.getId())) {
-            	String name = (String)session.getAttribute("mname");
+            	
     		    String midx = (String)session.getAttribute("midx");
 				
     		    result = stmt.executeUpdate("INSERT INTO qna (qtitle, qcontent, qdate, member_idx) VALUES('"+ title + "' , '" + content + "' , " + "DATE_FORMAT(now(),'%Y-%m-%d')," + midx +")");
