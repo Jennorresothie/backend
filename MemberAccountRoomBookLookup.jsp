@@ -31,8 +31,8 @@ try {
 
 	stmt = conn.createStatement();
 	rs = stmt.executeQuery(
-	"select m.mname, r.rname, rb.startbook, rb.endbook, r.price from room_book rb, room r, member m where rb.room_idx = r.idx and rb.member_idx=m.idx and rb.member_idx="
-			+ midx + " order by rb.startbook asc");
+	"SELECT  m.mname, r.rname, rb.startbook, rb.endbook, format(DATEDIFF(rb.endbook, rb.startbook)*r.price,0) as price FROM room r, room_book rb , member m WHERE r.idx = rb.room_idx AND rb.member_idx = m.idx AND rb.member_idx="
+			+ midx + " ORDER BY rb.startbook asc");
 
 	JSONArray list = new JSONArray();
 
